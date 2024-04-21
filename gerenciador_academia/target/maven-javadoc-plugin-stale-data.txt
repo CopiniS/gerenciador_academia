@@ -1,0 +1,59 @@
+@options
+@packages
+-classpath
+'C:/Users/gabri/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar;C:/Users/gabri/.m2/repository/com/google/protobuf/protobuf-java/3.21.9/protobuf-java-3.21.9.jar;C:/Users/gabri/.m2/repository/com/itextpdf/itextpdf/5.5.13.3/itextpdf-5.5.13.3.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'21'
+-sourcepath
+'C:/Users/gabri/OneDrive/Documentos/Trabalhos_ifsc/LPG/academia_github_certo/gerenciador_academia/gerenciador_academia/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/gabri/OneDrive/Documentos/Trabalhos_ifsc/LPG/academia_github_certo/gerenciador_academia/gerenciador_academia/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'gerenciador_academia 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'gerenciador_academia 1.0-SNAPSHOT API'
+controller
+DB
+models
+views
+C:\Users\gabri\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar = 1710849768198
+C:\Users\gabri\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar = 1710849768411
+C:\Users\gabri\.m2\repository\com\itextpdf\itextpdf\5.5.13.3\itextpdf-5.5.13.3.jar = 1712516079686
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\src\main\java = 1713700327743
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\allclasses-index.html = 1713700405418
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\allpackages-index.html = 1713700405420
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\copy.svg = 1713700405466
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\element-list = 1713700404980
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\Gerenciador_academia.html = 1713532826711
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\help-doc.html = 1713700405460
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\index-all.html = 1713700405448
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\index.html = 1713700405377
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\link.svg = 1713700405468
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\member-search-index.js = 1713700405425
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\module-search-index.js = 1713700405421
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\overview-summary.html = 1713700405454
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\overview-tree.html = 1713700405372
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\package-search-index.js = 1713700405422
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\package-summary.html = 1713532827453
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\package-tree.html = 1713532827460
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\package-use.html = 1713532827839
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\script.js = 1713700405465
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\search-page.js = 1713700405473
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\search.html = 1713700405450
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\search.js = 1713700405471
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\serialized-form.html = 1713700405090
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\stylesheet.css = 1713700405463
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\tag-search-index.js = 1713700405426
+C:\Users\gabri\OneDrive\Documentos\Trabalhos_ifsc\LPG\academia_github_certo\gerenciador_academia\gerenciador_academia\target\site\apidocs\type-search-index.js = 1713700405423
