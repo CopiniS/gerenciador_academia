@@ -8,19 +8,19 @@ import javax.swing.JOptionPane;
 import models.Cliente;
 import models.Plano;
 import models.Treino;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import models.Exercicio;
+import models.TreinoDAO;
 
 /**
  * Faz o controle entre a tela clienteAlterar e o backend
@@ -222,147 +222,56 @@ public class ClienteAlterarController {
     /**
      * Gera o pdf dos treinos separado por dias da semana, com musculaturas e exercícios
      * @param cliente cliente que deve ser buscado o treino e gerado o pdf
-     * @param map map dos exercicios separados por dia da semana
      */
     public void geraTreinoPdf(Cliente cliente, Map<String, List<Exercicio>> map){
+        String dia = obterDayOfWeek();
         
-        Document documentoPDF = new Document();
-        
-        try{
-            //cria uma instancia do documento e da o nome do pdf
-            PdfWriter.getInstance(documentoPDF, new FileOutputStream("Treino.pdf"));
-            
-            //abrir o documento
-            documentoPDF.open();
-            
-            //setar o tamnho da página
-            documentoPDF.setPageSize(PageSize.A4);
-            
-            
-            //imagem do relatorio
-            Image imagem = Image.getInstance("src/main/resources\\img\\preto.png");
-            
-            //setar o tamanho da imagem
-            //imagem.scaleToFit(400, 200);
-            
-            //adicionar a imagem ao pdf
-            documentoPDF.add(imagem);
-            
-            //adicinando primeiro paragrafo
-            documentoPDF.add(new Paragraph("Nome: "+ cliente.getNome()));
-            documentoPDF.add(new Paragraph("CPF: "+ cliente.getCpf()));
-            
-            //paragrafo da segunda pagina
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Treino: " + cliente.getTreino().getNome()));
-            
-            
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Segunda-Feira"));
-            
-            
-            documentoPDF.add(new Paragraph("Exercicios: "));
-            
-            System.out.println(map.get("Segunda").size());
-            if(map.get("Segunda").size() > 0){
-                System.out.println("estrou");
-                for(int i=0; i<map.get("Segunda").size(); i++){
-                    System.out.println("printa");
-                    documentoPDF.add(new Paragraph(map.get("Segunda").get(i).getMusculaturaAfetada() + " --- " + map.get("Segunda").get(i).getNome()));
-                }
-            }
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Terça-feira"));
-            
-            
-            documentoPDF.add(new Paragraph("Exercicios: "));
-            
-            if(!map.get("Terça").isEmpty()){
-                for(Exercicio e : map.get("Terça")){
-                    documentoPDF.add(new Paragraph(e.getMusculaturaAfetada() + " --- " + e.getNome()));
-                }
-            }
-            
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Quarta-feira"));
-            
-            
-            documentoPDF.add(new Paragraph("Exercicios: "));
-            
-            if(!map.get("Quarta").isEmpty()){
-                for(Exercicio e : map.get("Quarta")){
-                    documentoPDF.add(new Paragraph(e.getMusculaturaAfetada() + " --- " + e.getNome()));
-                }
-            }
-            
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Quinta -feira"));
-            
-            
-            documentoPDF.add(new Paragraph("Exercicios: "));
-            
-            if(!map.get("Quinta").isEmpty()){
-                for(Exercicio e : map.get("Quinta")){
-                    documentoPDF.add(new Paragraph(e.getMusculaturaAfetada() + " --- " + e.getNome()));
-                }
-            }
-            
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Sexta-feira"));
-            
-            
-            documentoPDF.add(new Paragraph("Exercicios: "));
-            
-            if(!map.get("Sexta").isEmpty()){
-                for(Exercicio e : map.get("Sexta")){
-                    documentoPDF.add(new Paragraph(e.getMusculaturaAfetada() + " --- " + e.getNome()));
-                }
-            }
-            
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Sábado"));
-            
-            
-            documentoPDF.add(new Paragraph("Exercicios: "));
-            
-            if(!map.get("Sabado").isEmpty()){
-                for(Exercicio e : map.get("Sabado")){
-                    documentoPDF.add(new Paragraph(e.getMusculaturaAfetada() + " --- " + e.getNome()));
-                }
-            }
-            
-            documentoPDF.add(new Paragraph(" "));
-            documentoPDF.add(new Paragraph("Domingo"));
-            
-            
-            documentoPDF.add(new Paragraph("Exercicios: "));
-            
-            if(!map.get("Domingo").isEmpty()){
-                for(Exercicio e : map.get("Domingo")){
-                    documentoPDF.add(new Paragraph(e.getMusculaturaAfetada() + " --- " + e.getNome()));
-                }
-            }
-            
-            
-            //nova pagina
-            //documentoPDF.newPage();
-            
-            
-            
-        }catch(DocumentException de){
-            de.printStackTrace();
-        }catch(IOException ioe){
-            ioe.printStackTrace();
-        }finally{
-            documentoPDF.close();
+        if(!map.get(dia).isEmpty()){
+            CupomTreino cupom = new CupomTreino();
+            cupom.configurarGeradorPDF();
+            cupom.atualizarMapAndClienteAndDia(cliente, map, dia);
+            cupom.imprimirPDF();
         }
         
-        //abrir pdf no leitor padrao do sistema
-    try{
-        Desktop.getDesktop().open(new File("Treino.pdf"));
-    } catch(Exception e2){
-        System.out.println(e2);
+        else{
+            JOptionPane.showMessageDialog(null, "O cliente nao possui treino para " + dia);
+        }
     }
+    
+        public String obterDayOfWeek(){
+        // Obter a data atual
+        LocalDate hoje = LocalDate.now();
+
+        // Obter o dia da semana
+        DayOfWeek diaDaSemana = hoje.getDayOfWeek();
+
+        // Converter o dia da semana para uma representação de texto
+        String nomeDoDia = diaDaSemana.getDisplayName(TextStyle.FULL, Locale.getDefault());
+        switch(nomeDoDia){
+            case "segunda-feira": 
+                nomeDoDia = "Segunda";
+                break;
+            case "terça-feira": 
+                nomeDoDia = "Terça";
+                break;
+            case "quarta-feira": 
+                nomeDoDia = "Quarta";
+                break;
+            case "quinta-feira": 
+                nomeDoDia = "Quinta";
+                break;
+            case "sexta-feira": 
+                nomeDoDia = "Sexta";
+                break;
+            case "sabado": 
+                nomeDoDia = "Sabado";
+                break;
+            case "domingo": 
+                nomeDoDia = "Domingo";
+                break;
+                
+        }
+        return nomeDoDia;
     }
    
 }

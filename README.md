@@ -30,7 +30,7 @@ O sistema foi desenvolvido para um gestor de academia ter melhor controle de tod
   
 * Criar um sistema voltado ao instrutor;
   
-* Verificar informações do instrutor, CPF, formações e capacitações, onde o sistema alegaria se ele poderia ou não exercer aquilo;
+* Verificar informações do instrutor, CPF, formações e capacitações, onde o sistema alegaria se ele poderia ou não exercer a função;
   
 * Vincular os dados de cliente a família (para o Plano Família);
   

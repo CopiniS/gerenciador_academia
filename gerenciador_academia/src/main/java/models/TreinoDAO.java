@@ -300,7 +300,7 @@ public class TreinoDAO {
     /**
      * 
      * @param idTreino treino selecionado
-     * @return retorna booelano, true se o exercicio foi deletado do treino
+     * @return retorna map com os exercicios e dias da semana
      */
     public Map<String,List<Exercicio>> retornaMapExerciciosDias(int idTreino){
         Connection conexao = this.banco.getConexao();
