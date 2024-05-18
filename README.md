@@ -1,12 +1,23 @@
 # Gerenciador de academia
 
-## Como instalar
-* importar o banco de dados no MySql Workbench
+## Como testar a aplicação
+* importar o banco de dados no MySql Workbench que está na pasta Banco
 
-* Abrir o executável .jar na pasta target
-
+* Abrir o executável .jar que está nessa pasta inicial do projeto:
+  * Pode-se apenas abrir clicando duas vezes no executável (assim ele iniciará o idioma puxando o padrão do seu sistema operacional, que se for diferente de pt-BR, en-US ou es-AR, executará em pt-BR);
+    
+  * Ou se quiser executar em um dos tres idiomas específicos, daí terá de executar pelo terminal com um dos comandos:
+  ```
+  java -jar .\gerenciador_academia-1.0-SNAPSHOT-launcher.jar pt BR
+  ```
+  ```
+  java -jar .\gerenciador_academia-1.0-SNAPSHOT-launcher.jar en US
+  ```
+  ```
+  java -jar .\gerenciador_academia-1.0-SNAPSHOT-launcher.jar es-AR
+  ```
 ## Objetivo do projeto
-O sistema foi desenvolvido para um gestor de academia ter melhor controle de todas as suas frentes presentes no local (exercícios, treinos, modalidades e planos) e realizar a captação de dados de alunos e instrutores.
+O sistema foi desenvolvido, principalmente para treinar os conceitos de orientação a objetos e o modelo MVC. Outros fatores também treinados no projeto foram implementação de um CRUD básico, manipulação de pdfs e internacionalização para 3 idiomas.
  
 ## Lista de Funcionalidades
 * Navegação fácil e intuitiva, com mensagens de sucesso e de erros bem definidas, para melhor entendimento do usuário;
@@ -23,12 +34,11 @@ O sistema foi desenvolvido para um gestor de academia ter melhor controle de tod
 
 * Vinculação dos treinos previamente cadastrados, com os clientes e ainda podendo gerar um pdf do treino adicionado.
 
+* Disponibilizado em 3 idiomas: ingles(US), português(BR) e espanhol(AR)
 
 
-## Lista de Funcionalidades Desejadas e não implementadas:
-* Criar um sistema voltado ao cliente;
-  
-* Criar um sistema voltado ao instrutor;
+
+## Lista de Funcionalidades Desejadas e não implementadas ainda:
   
 * Verificar informações do instrutor, CPF, formações e capacitações, onde o sistema alegaria se ele poderia ou não exercer a função;
   
