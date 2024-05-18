@@ -15,6 +15,8 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.Leading;
 import com.itextpdf.layout.properties.ListNumberingType;
 import com.itextpdf.layout.properties.Property;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.DayOfWeek;
@@ -25,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Cliente;
@@ -40,11 +43,13 @@ public class CupomTreino implements impressaoCupom{
     private Cliente cliente;
     private Map<String, List<Exercicio>> mapExercicio = new HashMap<>();
     private String diaSemana;
+    private ResourceBundle traducoes;
     
     public CupomTreino(){
         this.destinoArquivo = "./cupom.pdf"; //raiz do projeto
         this.alturaDocumento = (float) 118.0;
         this.larguraDocumento = (float) 88.0;
+        traducoes = Main.controllerManager.getTraducoes();
     }
 
     /**
@@ -95,9 +100,9 @@ public class CupomTreino implements impressaoCupom{
                     .setFontSize(3);
             
             Paragraph dadosEmpresa = new Paragraph("Gym Faustino             " + this.diaSemana); //refatorar como objeto e realizar injecao de dependencia
-            Paragraph dadosCliente = new Paragraph("Cliente: " + this.cliente.getNome());
-            Paragraph musculatura = new Paragraph("Musculatura: " + this.mapExercicio.get(this.diaSemana).get(0).getMusculaturaAfetada());
-            Paragraph footer = new Paragraph("Never give up!! " + "   No Pain, No Gain!!");
+            Paragraph dadosCliente = new Paragraph(this.traducoes.getString("cliente") + this.cliente.getNome());
+            Paragraph musculatura = new Paragraph(this.traducoes.getString("musculatura") + this.mapExercicio.get(this.diaSemana).get(0).getMusculaturaAfetada());
+            Paragraph footer = new Paragraph(this.traducoes.getString("motivacao"));
             
             List<Exercicio> exercicios = this.mapExercicio.get(this.diaSemana);
             com.itextpdf.layout.element.List pdfList = new com.itextpdf.layout.element.List();
@@ -120,6 +125,14 @@ public class CupomTreino implements impressaoCupom{
             documento.add(linhaRodape);
             documento.close(); //documento impresso
             
+            
+            // Abrir o PDF automaticamente
+            File file = new File(this.destinoArquivo);
+            if (file.exists()) {
+                Desktop.getDesktop().open(file);
+            } else {
+                System.out.println("O arquivo PDF não foi encontrado.");
+            }
         } catch (IOException ex) {
             Logger.getLogger(CupomTreino.class.getName()).log(Level.SEVERE, null, ex);
         }

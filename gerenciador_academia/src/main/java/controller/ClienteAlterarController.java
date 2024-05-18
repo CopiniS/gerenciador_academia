@@ -225,16 +225,20 @@ public class ClienteAlterarController {
      */
     public void geraTreinoPdf(Cliente cliente, Map<String, List<Exercicio>> map){
         String dia = obterDayOfWeek();
+        if(map != null){
+            if(!map.get(dia).isEmpty()){
+                CupomTreino cupom = new CupomTreino();
+                cupom.configurarGeradorPDF();
+                cupom.atualizarMapAndClienteAndDia(cliente, map, dia);
+                cupom.imprimirPDF();
+            }
         
-        if(!map.get(dia).isEmpty()){
-            CupomTreino cupom = new CupomTreino();
-            cupom.configurarGeradorPDF();
-            cupom.atualizarMapAndClienteAndDia(cliente, map, dia);
-            cupom.imprimirPDF();
+            else{
+                JOptionPane.showMessageDialog(null, "O treino do cliente nao possui exercicios para " + dia + ". Vá no treino para adicionar");
+            }
         }
-        
         else{
-            JOptionPane.showMessageDialog(null, "O cliente nao possui treino para " + dia);
+            JOptionPane.showMessageDialog(null, "Esse cliente ainda não possui um treino ");
         }
     }
     
@@ -247,6 +251,7 @@ public class ClienteAlterarController {
 
         // Converter o dia da semana para uma representação de texto
         String nomeDoDia = diaDaSemana.getDisplayName(TextStyle.FULL, Locale.getDefault());
+            System.out.println("nome do dia: " + nomeDoDia);
         switch(nomeDoDia){
             case "segunda-feira": 
                 nomeDoDia = "Segunda";
@@ -263,7 +268,7 @@ public class ClienteAlterarController {
             case "sexta-feira": 
                 nomeDoDia = "Sexta";
                 break;
-            case "sabado": 
+            case "sábado": 
                 nomeDoDia = "Sabado";
                 break;
             case "domingo": 

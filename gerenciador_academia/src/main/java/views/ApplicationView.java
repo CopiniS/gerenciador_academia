@@ -3,6 +3,7 @@ package views;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.ResourceBundle;
 import javax.swing.JPanel;
 
 public class ApplicationView {
@@ -28,11 +29,13 @@ public class ApplicationView {
     private TelaExercicioDeletar telaExercicioDeletar;
     
     
+    
 
     public ApplicationView() {
         this.janela = new Janela();
         this.janela.setLocationRelativeTo(null); //Posiciona no meio da tela
         this.janela.setVisible(true); 
+        
     }
     
     public void mostraTela(JPanel tela){

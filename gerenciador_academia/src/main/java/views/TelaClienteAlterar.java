@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -30,6 +31,7 @@ public class TelaClienteAlterar extends javax.swing.JPanel {
     List<Treino> listaTreinos;
     
     Cliente cliente;
+    ResourceBundle traducoes;
         
     
     /**
@@ -37,10 +39,32 @@ public class TelaClienteAlterar extends javax.swing.JPanel {
      */
     public TelaClienteAlterar() {
         initComponents();
+        traducoes = Main.controllerManager.getTraducoes();
+        traduzir();
+        
         
         tf_Nome.setEditable(false);
         ftf_dataNasc.setEditable(false);
         inicializaComboBoxCpf();
+    }
+    
+    public void traduzir(){
+        lb_titCPF.setText(this.traducoes.getString("lb_titCPF"));
+        lb_titDadosPess.setText(this.traducoes.getString("lb_titDadosPess"));
+        lb_Nome.setText(this.traducoes.getString("lb_Nome"));
+        lb_dataNasc.setText(this.traducoes.getString("lb_dataNasc"));
+        lb_titEndereco.setText(this.traducoes.getString("lb_titEndereco"));
+        lb_Rua.setText(this.traducoes.getString("lb_Rua"));
+        lb_numero.setText(this.traducoes.getString("lb_numero"));
+        lb_bairro.setText(this.traducoes.getString("lb_bairro"));
+        lb_cep.setText(this.traducoes.getString("lb_cep"));
+        lb_titPlano.setText(this.traducoes.getString("lb_titPlano"));
+        lb_tipoPlano.setText(this.traducoes.getString("lb_tipoPlano"));
+        lb_dataInicioPlano.setText(this.traducoes.getString("lb_dataInicioPlano"));
+        lb_titTreino.setText(this.traducoes.getString("lb_titTreino"));
+        bt_visuTreino.setText(this.traducoes.getString("bt_visuTreino"));
+        lb_txtAlterar.setText(this.traducoes.getString("lb_txtAlterar"));
+        lb_txtDeletar.setText(this.traducoes.getString("lb_txtDeletar"));
     }
     
     public void inicializaComboBoxCpf(){

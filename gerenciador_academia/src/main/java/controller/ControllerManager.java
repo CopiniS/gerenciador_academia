@@ -1,6 +1,7 @@
 
 package controller;
 
+import java.util.ResourceBundle;
 import models.ApplicationModel;
 import views.ApplicationView;
 import views.TelaCliente;
@@ -40,9 +41,10 @@ public class ControllerManager {
     private TreinoAdicionarController treinoAdicionarController;
     private TreinoAlterarController treinoAlterarController;
     private LoginController loginController;
+    private ResourceBundle traducoes;
     
 
-    public ControllerManager(ApplicationModel applicationModel, ApplicationView applicationView) {
+    public ControllerManager(ApplicationModel applicationModel, ApplicationView applicationView, ResourceBundle traducoes) {
         this.applicationModel = applicationModel;
         this.applicationView = applicationView;
         
@@ -65,6 +67,7 @@ public class ControllerManager {
         this.treinoAdicionarController = new TreinoAdicionarController();
         this.treinoAlterarController = new TreinoAlterarController();
         this.loginController = new LoginController();
+        this.traducoes = traducoes;
 
     }
     
@@ -298,6 +301,14 @@ public class ControllerManager {
 
     public void setTreinoAlterarController(TreinoAlterarController treinoAlterarController) {
         this.treinoAlterarController = treinoAlterarController;
+    }
+
+    public ResourceBundle getTraducoes() {
+        return traducoes;
+    }
+
+    public void setTraducoes(ResourceBundle traducoes) {
+        this.traducoes = traducoes;
     }
     
     
