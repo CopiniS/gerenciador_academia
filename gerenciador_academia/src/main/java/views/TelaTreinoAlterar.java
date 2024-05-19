@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -28,12 +29,34 @@ public class TelaTreinoAlterar extends javax.swing.JPanel {
     List<String> diasAdd;
     List<Exercicio> exerciciosAntigos;
     Map<String, List<Exercicio>> map;
+    private ResourceBundle traducoes;
     /**
      * Creates new form TelaTreinoAlterar
      */
     public TelaTreinoAlterar() throws SQLException {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        this.traduzir();
         inicializaçãoSistema();
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_alterTre.setText(this.traducoes.getString("lb_alterTre"));
+        lb_Nome.setText(this.traducoes.getString("lb_NomeTre"));
+        lb_selecDia.setText(this.traducoes.getString("lb_descricao"));
+        lb_selecDia.setText(this.traducoes.getString("lb_selecDia"));
+        lb_selecMusc.setText(this.traducoes.getString("lb_selecMusc"));
+        lb_txtNextDay.setText(this.traducoes.getString("lb_txtNextDay"));
+        lb_txtAlterTreino.setText(this.traducoes.getString("lb_txtAddTre"));
+        lb_selecExers.setText(this.traducoes.getString("lb_selecExers"));
+        lb_txtAlterTreino.setText(this.traducoes.getString("lb_txtAlterarTre"));
+        lb_txtDeletar.setText(this.traducoes.getString("lb_txtDeletarTre"));
     }
 
 public void InicializaListaExercicios(){
@@ -413,7 +436,7 @@ public void InicializaListaExercicios(){
     private void initComponents() {
 
         lb_Nome = new javax.swing.JLabel();
-        lb_titDadosPess = new javax.swing.JLabel();
+        lb_alterTre = new javax.swing.JLabel();
         lb_logo = new javax.swing.JLabel();
         lb_cliente = new javax.swing.JLabel();
         lb_treino = new javax.swing.JLabel();
@@ -422,18 +445,18 @@ public void InicializaListaExercicios(){
         lb_instrutor = new javax.swing.JLabel();
         lb_plano = new javax.swing.JLabel();
         lb_sideBar = new javax.swing.JLabel();
-        lb_txtAddTreino = new javax.swing.JLabel();
+        lb_txtAlterTreino = new javax.swing.JLabel();
         lb_botaoAddtreino = new javax.swing.JLabel();
-        lb_Nome1 = new javax.swing.JLabel();
+        lb_selecDia = new javax.swing.JLabel();
         cb_selecMusc = new javax.swing.JComboBox<>();
-        lb_Nome2 = new javax.swing.JLabel();
+        lb_selecMusc = new javax.swing.JLabel();
         cb_nomes = new javax.swing.JComboBox<>();
         cb_selecDia = new javax.swing.JComboBox<>();
         lb_txtDeletar = new javax.swing.JLabel();
         lb_botaoDeletar = new javax.swing.JLabel();
-        lb_Nome3 = new javax.swing.JLabel();
+        lb_Nome1 = new javax.swing.JLabel();
         tf_descricao = new javax.swing.JTextField();
-        lb_selecDia2 = new javax.swing.JLabel();
+        lb_selecExers = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
@@ -467,10 +490,10 @@ public void InicializaListaExercicios(){
         add(lb_Nome);
         lb_Nome.setBounds(320, 120, 180, 30);
 
-        lb_titDadosPess.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 18)); // NOI18N
-        lb_titDadosPess.setText("Adicionar Treino");
-        add(lb_titDadosPess);
-        lb_titDadosPess.setBounds(320, 100, 170, 20);
+        lb_alterTre.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 18)); // NOI18N
+        lb_alterTre.setText("Alterar Treino");
+        add(lb_alterTre);
+        lb_alterTre.setBounds(320, 100, 170, 20);
 
         lb_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/preto.png"))); // NOI18N
         add(lb_logo);
@@ -552,17 +575,17 @@ public void InicializaListaExercicios(){
         add(lb_sideBar);
         lb_sideBar.setBounds(0, 0, 254, 720);
 
-        lb_txtAddTreino.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 16)); // NOI18N
-        lb_txtAddTreino.setForeground(new java.awt.Color(255, 255, 255));
-        lb_txtAddTreino.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_txtAddTreino.setText("ALTERAR TREINO");
-        lb_txtAddTreino.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_txtAlterTreino.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 16)); // NOI18N
+        lb_txtAlterTreino.setForeground(new java.awt.Color(255, 255, 255));
+        lb_txtAlterTreino.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_txtAlterTreino.setText("ALTERAR TREINO");
+        lb_txtAlterTreino.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_txtAddTreinoMouseClicked(evt);
+                lb_txtAlterTreinoMouseClicked(evt);
             }
         });
-        add(lb_txtAddTreino);
-        lb_txtAddTreino.setBounds(920, 230, 260, 30);
+        add(lb_txtAlterTreino);
+        lb_txtAlterTreino.setBounds(920, 230, 260, 30);
 
         lb_botaoAddtreino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bt-azul.png"))); // NOI18N
         lb_botaoAddtreino.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -573,10 +596,10 @@ public void InicializaListaExercicios(){
         add(lb_botaoAddtreino);
         lb_botaoAddtreino.setBounds(920, 210, 260, 70);
 
-        lb_Nome1.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_Nome1.setText("Selecione um dia da semana:");
-        add(lb_Nome1);
-        lb_Nome1.setBounds(320, 200, 250, 30);
+        lb_selecDia.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_selecDia.setText("Selecione um dia da semana:");
+        add(lb_selecDia);
+        lb_selecDia.setBounds(320, 200, 250, 30);
 
         cb_selecMusc.setBackground(new java.awt.Color(153, 255, 51));
         cb_selecMusc.setFont(new java.awt.Font("CommercialScript BT", 1, 14)); // NOI18N
@@ -589,10 +612,10 @@ public void InicializaListaExercicios(){
         add(cb_selecMusc);
         cb_selecMusc.setBounds(320, 320, 320, 40);
 
-        lb_Nome2.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_Nome2.setText("Selecione o musculo");
-        add(lb_Nome2);
-        lb_Nome2.setBounds(320, 290, 250, 30);
+        lb_selecMusc.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_selecMusc.setText("Selecione o musculo");
+        add(lb_selecMusc);
+        lb_selecMusc.setBounds(320, 290, 250, 30);
 
         cb_nomes.setBackground(new java.awt.Color(153, 255, 51));
         cb_nomes.setFont(new java.awt.Font("CommercialScript BT", 1, 14)); // NOI18N
@@ -626,10 +649,10 @@ public void InicializaListaExercicios(){
         add(lb_botaoDeletar);
         lb_botaoDeletar.setBounds(920, 310, 260, 70);
 
-        lb_Nome3.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_Nome3.setText("Descrição");
-        add(lb_Nome3);
-        lb_Nome3.setBounds(680, 120, 180, 30);
+        lb_Nome1.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_Nome1.setText("Descrição");
+        add(lb_Nome1);
+        lb_Nome1.setBounds(680, 120, 180, 30);
 
         tf_descricao.setBackground(new java.awt.Color(238, 238, 238));
         tf_descricao.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
@@ -642,10 +665,10 @@ public void InicializaListaExercicios(){
         add(tf_descricao);
         tf_descricao.setBounds(680, 150, 530, 40);
 
-        lb_selecDia2.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_selecDia2.setText("Adicione os exercicios para o dia ");
-        add(lb_selecDia2);
-        lb_selecDia2.setBounds(320, 380, 270, 30);
+        lb_selecExers.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_selecExers.setText("Adicione os exercicios para o dia ");
+        add(lb_selecExers);
+        lb_selecExers.setBounds(320, 380, 270, 30);
 
         jCheckBox1.setBackground(new java.awt.Color(153, 255, 51));
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -916,7 +939,7 @@ public void InicializaListaExercicios(){
         }
     }//GEN-LAST:event_cb_nomesActionPerformed
 
-    private void lb_txtAddTreinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_txtAddTreinoMouseClicked
+    private void lb_txtAlterTreinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_txtAlterTreinoMouseClicked
         Treino t = Main.controllerManager.getTreinoAlterarController().retornaTreinoPeloNome(cb_nomes.getSelectedItem().toString(), listaTreinos);
         if(Main.controllerManager.getTreinoAlterarController().validaDescricao(tf_descricao.getText())){
             if(Main.controllerManager.getTreinoAlterarController().validaExercicios(diasAdd)){
@@ -934,7 +957,7 @@ public void InicializaListaExercicios(){
         else{
             JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
         }
-    }//GEN-LAST:event_lb_txtAddTreinoMouseClicked
+    }//GEN-LAST:event_lb_txtAlterTreinoMouseClicked
 
     private void lb_botaoAddtreinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_botaoAddtreinoMouseClicked
         Treino t = Main.controllerManager.getTreinoAlterarController().retornaTreinoPeloNome(cb_nomes.getSelectedItem().toString(), listaTreinos);
@@ -984,8 +1007,7 @@ public void InicializaListaExercicios(){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lb_Nome;
     private javax.swing.JLabel lb_Nome1;
-    private javax.swing.JLabel lb_Nome2;
-    private javax.swing.JLabel lb_Nome3;
+    private javax.swing.JLabel lb_alterTre;
     private javax.swing.JLabel lb_botaoAddtreino;
     private javax.swing.JLabel lb_botaoDeletar;
     private javax.swing.JLabel lb_botaoNextDay;
@@ -995,11 +1017,12 @@ public void InicializaListaExercicios(){
     private javax.swing.JLabel lb_logo;
     private javax.swing.JLabel lb_modalidade;
     private javax.swing.JLabel lb_plano;
-    private javax.swing.JLabel lb_selecDia2;
+    private javax.swing.JLabel lb_selecDia;
+    private javax.swing.JLabel lb_selecExers;
+    private javax.swing.JLabel lb_selecMusc;
     private javax.swing.JLabel lb_sideBar;
-    private javax.swing.JLabel lb_titDadosPess;
     private javax.swing.JLabel lb_treino;
-    private javax.swing.JLabel lb_txtAddTreino;
+    private javax.swing.JLabel lb_txtAlterTreino;
     private javax.swing.JLabel lb_txtDeletar;
     private javax.swing.JLabel lb_txtNextDay;
     private javax.swing.JTextField tf_descricao;

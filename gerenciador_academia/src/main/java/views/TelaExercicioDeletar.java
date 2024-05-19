@@ -4,6 +4,7 @@ package views;
 import controller.Main;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import models.Exercicio;
 
@@ -13,13 +14,28 @@ import models.Exercicio;
  */
 public class TelaExercicioDeletar extends javax.swing.JPanel {
     List<Exercicio> listaExercicios;
+    ResourceBundle traducoes;
     /**
      * Creates new form TelaExercicioAlterar
      */
     public TelaExercicioDeletar() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        traduzir();
         this.listaExercicios = Main.controllerManager.getExercicioAlterarController().retornaListaexercicios();
         inicializaComboBox();
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titNomeExercicio.setText(this.traducoes.getString("lb_titNomeExercicio"));
+        lb_NomeExercicio.setText(this.traducoes.getString("lb_NomeEx"));
+        lb_txtAddDeletar.setText(this.traducoes.getString("lb_txtDeletarEx"));
     }
     
     public void inicializaComboBox(){

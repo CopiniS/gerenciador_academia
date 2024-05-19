@@ -2,6 +2,7 @@ package views;
 
 import controller.Main;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import models.Modalidade;
 import models.Plano;
@@ -10,14 +11,33 @@ public class TelaPlanoAdicionar extends javax.swing.JPanel {
     List<Modalidade> listaModalidades;
     String []vetorModalidade; 
     Plano plano;
+    private ResourceBundle traducoes;
     
     public TelaPlanoAdicionar() {
         initComponents();     
+        this.traducoes = Main.controllerManager.getTraducoes();
+        this.traduzir();
         inicializaListaModalidade();
         inicializarCheckBoxs();
         verificaModalidadesVazias();
         
     }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titPlano.setText(this.traducoes.getString("lb_titPlano"));
+        lb_Nome.setText(this.traducoes.getString("lb_NomePlan"));
+        lb_TempoContrato.setText(this.traducoes.getString("lb_TempoContrato"));
+        lb_titModalidade.setText((this.traducoes.getString("lb_titModalidadePlan")));
+        lb_titValor.setText(this.traducoes.getString("lb_titValor"));
+        lb_txtAddPlano.setText(this.traducoes.getString("lb_txtAddPlan"));
+    }
+    
     public void inicializaListaModalidade(){
         listaModalidades = Main.controllerManager.getPlanoAdicionarController().retornaListaModadalidade();
     }

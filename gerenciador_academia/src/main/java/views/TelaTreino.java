@@ -6,6 +6,7 @@ package views;
 
 import controller.Main;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,12 +15,26 @@ import java.util.logging.Logger;
  * @author tiovi
  */
 public class TelaTreino extends javax.swing.JPanel {
-
+    private ResourceBundle traducoes;
     /**
      * Creates new form TelaTreino
      */
     public TelaTreino() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        this.traduzir();
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_txtAdd.setText(this.traducoes.getString("lb_txtAddTre"));
+        lb_txtAlterar.setText(this.traducoes.getString("lb_txtAlterarTre"));
+        lb_txtMostrar.setText(this.traducoes.getString("lb_txtMostrarTre"));
     }
 
     /**

@@ -3,6 +3,7 @@ package views;
 import controller.Main;
 import java.text.ParseException;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -13,12 +14,30 @@ public class TelaInstrutorAdicionar extends javax.swing.JPanel {
     private List<Modalidade> listaModalidades;
     private String []vetorModalidade;
     private Instrutor instrutor;
+    private ResourceBundle traducoes;
     
     public TelaInstrutorAdicionar() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        traduzir();
         inicializaListaModalidades();
         inicializarCheckBoxs();
         
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titDadosPess.setText(this.traducoes.getString("lb_titDadosPess"));
+        lb_Nome.setText(this.traducoes.getString("lb_Nome"));
+        lb_CPF.setText(this.traducoes.getString("ftf_cpf"));
+        lb_titModalidade.setText(this.traducoes.getString("lb_titModalidade"));
+        lb_tipoModalidade.setText(this.traducoes.getString("lb_tipoModalidade"));
+        lb_txtAddInstrutor.setText(this.traducoes.getString("lb_txtAddIns"));
     }
     
     public void inicializaListaModalidades(){

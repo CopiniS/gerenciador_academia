@@ -1,9 +1,11 @@
 # Gerenciador de academia
 
 ## Como testar a aplicação
-* importar o banco de dados no MySql Workbench que está na pasta Banco
+* Abrir a pasta /executar
 
-* Abrir o executável .jar que está nessa pasta inicial do projeto:
+* importar o banco de dados no MySql Workbench que está na pasta /banco
+
+* Abrir o executável .jar do projeto:
   * Pode-se apenas abrir clicando duas vezes no executável (assim ele iniciará o idioma puxando o padrão do seu sistema operacional, que se for diferente de pt-BR, en-US ou es-AR, executará em pt-BR);
     
   * Ou se quiser executar em um dos tres idiomas específicos, daí terá de executar pelo terminal com um dos comandos:

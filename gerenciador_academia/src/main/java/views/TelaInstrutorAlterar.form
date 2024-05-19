@@ -348,7 +348,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="lb_tipoModalidade1">
+    <Component class="javax.swing.JLabel" name="lb_tipoModalidade">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Montserrat" size="16" style="0"/>

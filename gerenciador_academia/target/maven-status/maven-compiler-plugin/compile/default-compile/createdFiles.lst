@@ -25,7 +25,6 @@ views\TelaExercicio$4.class
 views\TelaClienteAdicionar$6.class
 views\TelaClienteAlterar$1.class
 views\Janela$1.class
-views\TelaAdicionarPlano.class
 views\TelaExercicioAdicionar$6.class
 views\TelaInstrutor$4.class
 views\TelaPlano$3.class
@@ -139,7 +138,6 @@ views\TelaTreinoAdicionar$3.class
 views\TelaCliente$8.class
 views\TelaInstrutor$9.class
 views\TelaExercicioAdicionar$1.class
-views\TelaModalidadeAlterar.class
 views\TelaPlanoAlterar$15.class
 views\TelaTreinoAdicionar$11.class
 views\TelaClienteAlterar$9.class

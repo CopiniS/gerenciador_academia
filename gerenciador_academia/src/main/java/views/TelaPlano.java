@@ -5,18 +5,33 @@
 package views;
 
 import controller.Main;
+import java.util.ResourceBundle;
 
 /**
  *
  * @author tiovi
  */
 public class TelaPlano extends javax.swing.JPanel {
-
+    private ResourceBundle traducoes;
     /**
      * Creates new form TelaPlano
      */
     public TelaPlano() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        this.traduzir();
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_txtAdd.setText(this.traducoes.getString("lb_txtAddPlan"));
+        lb_txtAdd1.setText(this.traducoes.getString("lb_txtAlterarPlan"));
+        lb_txtMostrar.setText(this.traducoes.getString("lb_txtMostrarPlan"));
     }
 
     /**

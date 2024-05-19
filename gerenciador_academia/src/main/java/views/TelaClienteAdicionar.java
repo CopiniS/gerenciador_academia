@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -24,15 +25,40 @@ public class TelaClienteAdicionar extends javax.swing.JPanel {
     List<Treino> listaTreinos;
     List<Plano> listaPlanos;
     Cliente cliente;
+    ResourceBundle traducoes;
     /**
      * Creates new form TelaClienteAdicionar
      */
     public TelaClienteAdicionar() {
         initComponents();
+        traducoes = Main.controllerManager.getTraducoes();
+        traduzir();
         listaTreinos = Main.controllerManager.getApplicationModel().getTreinoDAO().selectTreinos();
         listaPlanos = Main.controllerManager.getApplicationModel().getPlanoDAO().selectPlanoSql();
         inicializaComboboxes();
         cliente = new Cliente();
+    }
+    
+    public void traduzir(){
+        lb_titDadosPess.setText(this.traducoes.getString("lb_titDadosPess"));
+        lb_Nome.setText(this.traducoes.getString("lb_Nome"));
+        lb_dataNasc.setText(this.traducoes.getString("lb_dataNasc"));
+        lb_titEndereco.setText(this.traducoes.getString("lb_titEndereco"));
+        lb_Rua.setText(this.traducoes.getString("lb_Rua"));
+        lb_numero.setText(this.traducoes.getString("lb_numero"));
+        lb_bairro.setText(this.traducoes.getString("lb_bairro"));
+        lb_cep.setText(this.traducoes.getString("lb_cep"));
+        lb_titPlano.setText(this.traducoes.getString("lb_titPlano"));
+        lb_tipoPlano.setText(this.traducoes.getString("lb_tipoPlano"));
+        lb_titTreino.setText(this.traducoes.getString("lb_titTreino"));
+        lb_txtAddCliente.setText(this.traducoes.getString("lb_txtAdd"));
+        ftf_cpf.setText(this.traducoes.getString("ftf_cpf"));
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
     }
     
     public void inicializaComboboxes(){

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import models.Exercicio;
 
@@ -23,11 +24,31 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
     String [][] matrizDiaExercicios;
     Map<String, List<Exercicio>> map;
     List<String> diasAdd;
+    private ResourceBundle traducoes;
     
     public TelaTreinoAdicionar() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        this.traduzir();
         inicializaçãoSistema();
          
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titAddTreino.setText(this.traducoes.getString("lb_titAddTreino"));
+        lb_Nome.setText(this.traducoes.getString("lb_NomeTre"));
+        lb_Nome1.setText(this.traducoes.getString("lb_descricao"));
+        lb_selecDia.setText(this.traducoes.getString("lb_selecDia"));
+        lb_selecMusc.setText(this.traducoes.getString("lb_selecMusc"));
+        lb_txtNextDay.setText(this.traducoes.getString("lb_txtNextDay"));
+        lb_txtAddTreino.setText(this.traducoes.getString("lb_txtAddTre"));
+        lb_selecExers.setText(this.traducoes.getString("lb_selecExers"));
     }
     
     public void InicializaListaExercicios(){
@@ -395,7 +416,7 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         lb_instrutor = new javax.swing.JLabel();
         lb_plano = new javax.swing.JLabel();
         lb_sideBar = new javax.swing.JLabel();
-        lb_txtAddCliente = new javax.swing.JLabel();
+        lb_txtAddTreino = new javax.swing.JLabel();
         lb_botaoAddCliente = new javax.swing.JLabel();
         tf_Nome = new javax.swing.JTextField();
         lb_selecDia = new javax.swing.JLabel();
@@ -404,9 +425,8 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         lb_botaoAddCliente1 = new javax.swing.JLabel();
         lb_txtNextDay = new javax.swing.JLabel();
         lb_botaoNextDay = new javax.swing.JLabel();
-        lb_selecDia1 = new javax.swing.JLabel();
         cb_selecDia1 = new javax.swing.JComboBox<>();
-        lb_selecDia2 = new javax.swing.JLabel();
+        lb_selecExers = new javax.swing.JLabel();
         cb_selecMusc = new javax.swing.JComboBox<>();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -428,7 +448,7 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         jCheckBox18 = new javax.swing.JCheckBox();
         jCheckBox19 = new javax.swing.JCheckBox();
         jCheckBox20 = new javax.swing.JCheckBox();
-        lb_selecDia3 = new javax.swing.JLabel();
+        lb_selecMusc = new javax.swing.JLabel();
         lb_Nome1 = new javax.swing.JLabel();
         tf_descricao = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -527,17 +547,17 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         add(lb_sideBar);
         lb_sideBar.setBounds(0, 0, 254, 720);
 
-        lb_txtAddCliente.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 16)); // NOI18N
-        lb_txtAddCliente.setForeground(new java.awt.Color(255, 255, 255));
-        lb_txtAddCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_txtAddCliente.setText("Adicionar Treino");
-        lb_txtAddCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_txtAddTreino.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 16)); // NOI18N
+        lb_txtAddTreino.setForeground(new java.awt.Color(255, 255, 255));
+        lb_txtAddTreino.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_txtAddTreino.setText("Adicionar Treino");
+        lb_txtAddTreino.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_txtAddClienteMouseClicked(evt);
+                lb_txtAddTreinoMouseClicked(evt);
             }
         });
-        add(lb_txtAddCliente);
-        lb_txtAddCliente.setBounds(940, 280, 260, 30);
+        add(lb_txtAddTreino);
+        lb_txtAddTreino.setBounds(940, 280, 260, 30);
 
         lb_botaoAddCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bt-azul.png"))); // NOI18N
         lb_botaoAddCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -605,21 +625,16 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         add(lb_botaoNextDay);
         lb_botaoNextDay.setBounds(720, 280, 160, 40);
 
-        lb_selecDia1.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_selecDia1.setText("Selecione um dia da semana:");
-        add(lb_selecDia1);
-        lb_selecDia1.setBounds(330, 200, 250, 30);
-
         cb_selecDia1.setBackground(new java.awt.Color(153, 255, 51));
         cb_selecDia1.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         cb_selecDia1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo" }));
         add(cb_selecDia1);
         cb_selecDia1.setBounds(330, 230, 320, 40);
 
-        lb_selecDia2.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_selecDia2.setText("Adicione os exercicios para o dia ");
-        add(lb_selecDia2);
-        lb_selecDia2.setBounds(330, 390, 270, 30);
+        lb_selecExers.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_selecExers.setText("Adicione os exercicios para o dia ");
+        add(lb_selecExers);
+        lb_selecExers.setBounds(330, 390, 270, 30);
 
         cb_selecMusc.setBackground(new java.awt.Color(153, 255, 51));
         cb_selecMusc.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
@@ -752,10 +767,10 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         add(jCheckBox20);
         jCheckBox20.setBounds(1070, 600, 200, 30);
 
-        lb_selecDia3.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_selecDia3.setText("Selecione um musculo para o dia");
-        add(lb_selecDia3);
-        lb_selecDia3.setBounds(330, 300, 310, 30);
+        lb_selecMusc.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_selecMusc.setText("Selecione um musculo para o dia");
+        add(lb_selecMusc);
+        lb_selecMusc.setBounds(330, 300, 310, 30);
 
         lb_Nome1.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         lb_Nome1.setText("Descrição");
@@ -867,7 +882,7 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lb_txtNextDayMouseClicked
 
-    private void lb_txtAddClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_txtAddClienteMouseClicked
+    private void lb_txtAddTreinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_txtAddTreinoMouseClicked
         if(Main.controllerManager.getTreinoAdicionarController().validaNomeEdescricao(tf_Nome.getText(), tf_descricao.getText())){
             if(Main.controllerManager.getTreinoAdicionarController().validaExercicios(diasAdd)){
                 if(Main.controllerManager.getTreinoAdicionarController().btAddtreino(map, tf_Nome.getText(), tf_descricao.getText(), diasAdd)){
@@ -884,7 +899,7 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
         }
-    }//GEN-LAST:event_lb_txtAddClienteMouseClicked
+    }//GEN-LAST:event_lb_txtAddTreinoMouseClicked
 
     private void tf_descricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_descricaoActionPerformed
         // TODO add your handling code here:
@@ -966,14 +981,13 @@ public class TelaTreinoAdicionar extends javax.swing.JPanel {
     private javax.swing.JLabel lb_modalidade;
     private javax.swing.JLabel lb_plano;
     private javax.swing.JLabel lb_selecDia;
-    private javax.swing.JLabel lb_selecDia1;
-    private javax.swing.JLabel lb_selecDia2;
-    private javax.swing.JLabel lb_selecDia3;
+    private javax.swing.JLabel lb_selecExers;
+    private javax.swing.JLabel lb_selecMusc;
     private javax.swing.JLabel lb_sideBar;
     private javax.swing.JLabel lb_titAddTreino;
     private javax.swing.JLabel lb_treino;
-    private javax.swing.JLabel lb_txtAddCliente;
     private javax.swing.JLabel lb_txtAddCliente1;
+    private javax.swing.JLabel lb_txtAddTreino;
     private javax.swing.JLabel lb_txtNextDay;
     private javax.swing.JTextField tf_Nome;
     private javax.swing.JTextField tf_descricao;

@@ -8,6 +8,7 @@ import controller.Main;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -26,14 +27,33 @@ public class TelaInstrutorAlterar extends javax.swing.JPanel {
     private List<Modalidade> modalidadesAntigas;
     private List<Modalidade> modalidadesNovas;
     private String []vetorModalidade;
+    private ResourceBundle traducoes;
     
     /**
      * Creates new form TelaAlterarCliente
      */
     public TelaInstrutorAlterar() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        traduzir();
         inicializaCbBoxCpf();
         tf_Nome.setEditable(false);
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titCPF.setText(this.traducoes.getString("lb_titCPF"));
+        lb_titDadosPess.setText(this.traducoes.getString("lb_titDadosPess"));
+        lb_Nome.setText(this.traducoes.getString("lb_Nome"));
+        lb_titModalidade.setText(this.traducoes.getString("lb_titModalidade"));
+        lb_tipoModalidade.setText(this.traducoes.getString("lb_tipoModalidade"));
+        lb_txtAlterar.setText(this.traducoes.getString("lb_txtAlterar"));
+        lb_txtDeletar.setText(this.traducoes.getString("lb_txtDeletarIns"));
     }
     
     public void inicializaCbBoxCpf(){
@@ -288,7 +308,7 @@ public class TelaInstrutorAlterar extends javax.swing.JPanel {
         lb_txtAlterar = new javax.swing.JLabel();
         lb_btAlterar = new javax.swing.JLabel();
         cb_CPF = new javax.swing.JComboBox<>();
-        lb_tipoModalidade1 = new javax.swing.JLabel();
+        lb_tipoModalidade = new javax.swing.JLabel();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jCheckBox4 = new javax.swing.JCheckBox();
@@ -468,10 +488,10 @@ public class TelaInstrutorAlterar extends javax.swing.JPanel {
         add(cb_CPF);
         cb_CPF.setBounds(330, 165, 320, 40);
 
-        lb_tipoModalidade1.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_tipoModalidade1.setText("Modalidade ensinadas:");
-        add(lb_tipoModalidade1);
-        lb_tipoModalidade1.setBounds(330, 380, 230, 30);
+        lb_tipoModalidade.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_tipoModalidade.setText("Modalidade ensinadas:");
+        add(lb_tipoModalidade);
+        lb_tipoModalidade.setBounds(330, 380, 230, 30);
 
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -616,7 +636,7 @@ public class TelaInstrutorAlterar extends javax.swing.JPanel {
     private javax.swing.JLabel lb_modalidade;
     private javax.swing.JLabel lb_plano;
     private javax.swing.JLabel lb_sideBar;
-    private javax.swing.JLabel lb_tipoModalidade1;
+    private javax.swing.JLabel lb_tipoModalidade;
     private javax.swing.JLabel lb_titCPF;
     private javax.swing.JLabel lb_titDadosPess;
     private javax.swing.JLabel lb_titModalidade;

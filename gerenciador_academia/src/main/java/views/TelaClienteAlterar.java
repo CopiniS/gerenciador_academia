@@ -65,6 +65,12 @@ public class TelaClienteAlterar extends javax.swing.JPanel {
         bt_visuTreino.setText(this.traducoes.getString("bt_visuTreino"));
         lb_txtAlterar.setText(this.traducoes.getString("lb_txtAlterar"));
         lb_txtDeletar.setText(this.traducoes.getString("lb_txtDeletar"));
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
     }
     
     public void inicializaComboBoxCpf(){

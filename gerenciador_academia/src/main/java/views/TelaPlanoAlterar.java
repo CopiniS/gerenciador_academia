@@ -7,6 +7,7 @@ package views;
 import controller.Main;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -24,13 +25,32 @@ public class TelaPlanoAlterar extends javax.swing.JPanel {
     List<Modalidade> modalidadesAntigas;
     List<Modalidade> modalidadesNovas;
     String []vetorModalidade;
+    private ResourceBundle traducoes;
     
     /**
      * Creates new form TelaPlanoAlterar
      */
     public TelaPlanoAlterar() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        this.traduzir();
         inicializaCbBox();
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titPlano.setText(this.traducoes.getString("lb_titPlano"));
+        lb_SelecionePlan.setText(this.traducoes.getString("lb_SelecionePlan"));
+        lb_TempoContrato.setText(this.traducoes.getString("lb_TempoContrato"));
+        lb_titModalidade.setText(this.traducoes.getString("lb_titModalidadePlan"));
+        lb_titValor.setText(this.traducoes.getString("lb_titValor"));
+        lb_txtAddPlano.setText(this.traducoes.getString("lb_txtAlterarPlan"));
+        lb_txtDeletar.setText(this.traducoes.getString("lb_txtDeletarPlan"));
     }
     
     public String[] inicializaVetorModalidades(List<Modalidade> modalidades){
@@ -255,7 +275,7 @@ public class TelaPlanoAlterar extends javax.swing.JPanel {
 
         tf_Valor = new javax.swing.JTextField();
         lb_TempoContrato = new javax.swing.JLabel();
-        lb_Nome = new javax.swing.JLabel();
+        lb_SelecionePlan = new javax.swing.JLabel();
         lb_titValor = new javax.swing.JLabel();
         lb_titModalidade = new javax.swing.JLabel();
         lb_titPlano = new javax.swing.JLabel();
@@ -302,10 +322,10 @@ public class TelaPlanoAlterar extends javax.swing.JPanel {
         add(lb_TempoContrato);
         lb_TempoContrato.setBounds(330, 215, 180, 20);
 
-        lb_Nome.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        lb_Nome.setText("Selecione o Plano:");
-        add(lb_Nome);
-        lb_Nome.setBounds(330, 130, 180, 30);
+        lb_SelecionePlan.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        lb_SelecionePlan.setText("Selecione o Plano:");
+        add(lb_SelecionePlan);
+        lb_SelecionePlan.setBounds(330, 130, 180, 30);
 
         lb_titValor.setFont(new java.awt.Font("Montserrat ExtraBold", 0, 18)); // NOI18N
         lb_titValor.setText("Valor");
@@ -625,7 +645,7 @@ public class TelaPlanoAlterar extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JLabel lb_Nome;
+    private javax.swing.JLabel lb_SelecionePlan;
     private javax.swing.JLabel lb_TempoContrato;
     private javax.swing.JLabel lb_botaoAddPlano;
     private javax.swing.JLabel lb_btDeletar;

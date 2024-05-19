@@ -5,6 +5,7 @@
 package views;
 
 import controller.Main;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import models.Modalidade;
 
@@ -14,12 +15,27 @@ import models.Modalidade;
  */
 public class TelaModalidadeAdicionar extends javax.swing.JPanel {
     Modalidade modalidade;
+    private ResourceBundle traducoes;
     /**
      * Creates new form TelaModalidadeAdicionar
      */
     public TelaModalidadeAdicionar() {
         initComponents();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        traduzir();
         this.modalidade = new Modalidade();
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titModalidade.setText(this.traducoes.getString("lb_titModalidade"));
+        lb_Nome.setText(this.traducoes.getString("lb_NomeModa"));
+        lb_txtAddModalidade.setText(this.traducoes.getString("lb_txtAddModa"));
     }
 
     /**

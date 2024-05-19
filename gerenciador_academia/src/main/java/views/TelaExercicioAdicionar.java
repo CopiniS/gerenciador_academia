@@ -5,6 +5,7 @@
 package views;
 
 import controller.Main;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import models.Exercicio;
 
@@ -14,12 +15,28 @@ import models.Exercicio;
  */
 public class TelaExercicioAdicionar extends javax.swing.JPanel {
     Exercicio exercicio;
+    ResourceBundle traducoes;
     /**
      * Creates new form TelaExercicioAdicionar
      */
     public TelaExercicioAdicionar() {
         initComponents();
         exercicio = new Exercicio();
+        this.traducoes = Main.controllerManager.getTraducoes();
+        traduzir();
+    }
+    
+    public void traduzir(){
+        lb_cliente.setText(this.traducoes.getString("lb_cliente"));
+        lb_instrutor.setText(this.traducoes.getString("lb_instrutor"));
+        lb_plano.setText(this.traducoes.getString("lb_plano"));
+        lb_exercicio.setText(this.traducoes.getString("lb_exercicio"));
+        lb_modalidade.setText(this.traducoes.getString("lb_modalidade"));
+        lb_treino.setText(this.traducoes.getString("lb_treino"));
+        lb_titAddExec.setText(this.traducoes.getString("lb_titAddExec"));
+        lb_Musculo.setText(this.traducoes.getString("lb_Musculo"));
+        lb_txtAddExercicio.setText(this.traducoes.getString("lb_txtAddEx"));
+        lb_Nome.setText(this.traducoes.getString("lb_NomeEx"));
     }
 
     /**
